@@ -2,5 +2,24 @@
   "devDependencies": {
     "lerna": "^4.0.0"
   },
-  "name": "vector"
+  "private": true,
+  "name": "vector",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "workspaces": [
+    "contracts",
+    "app"
+  ],
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com"
+    }
+  },
+  "scripts": {
+    "test": "lerna run test --parallel"
+  },
+  "resolutions": {
+    "@ethereumjs/vm": "5.3.2",
+    "@ethereumjs/tx": "3.1.3"
+  }
 }

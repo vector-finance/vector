@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "contracts",
+    "app"
   ],
   "version": "0.0.0"
 }

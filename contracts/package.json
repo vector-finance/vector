@@ -1,0 +1,57 @@
+{
+  "name": "@vectorfinance/contracts",
+  "version": "0.0.0",
+  "description": "Solidity Contracts for Vector Finance",
+  "keywords": [
+    "Vector",
+    "Finance",
+    "DeFi",
+    "Rebalance",
+    "Yield",
+    "Farming",
+    "Portfolio"
+  ],
+  "author": "kimduhan <duhankim@protonmail.com>",
+  "homepage": "https://github.com/vector-finance/vector#readme",
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "contracts",
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vector-finance/vector.git"
+  },
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "postcompile": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/vector-finance/vector/issues"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@types/chai": "^4.2.18",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^15.12.2",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.3.1",
+    "hardhat": "^2.3.0",
+    "hardhat-typechain": "^0.3.5",
+    "ts-node": "^10.0.0",
+    "typechain": "^5.0.0",
+    "typescript": "^4.3.2"
+  }
+}
