@@ -20,7 +20,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "test": "lerna run test --parallel",
+    "test": "lerna run test --ci --parallel",
     "build": "lerna run build --parallel",
     "prettier": "lerna run prettier --parallel"
   },
