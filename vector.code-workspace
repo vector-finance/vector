@@ -1,0 +1,12 @@
+{
+    "settings": {
+        "solidity.packageDefaultDependenciesContractsDirectory": "",
+        "solidity.packageDefaultDependenciesDirectory": "node_modules",
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.vscode-typescript-tslint-plugin",
+            "juanblanco.solidity",
+        ]
+    }
+}
