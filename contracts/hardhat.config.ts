@@ -1,29 +1,30 @@
-import { HardhatUserConfig, task } from "hardhat/config";
+import { config as dotEnvConfig } from "dotenv";
+dotEnvConfig();
+
+import { HardhatUserConfig } from "hardhat/types";
+
 import "@nomiclabs/hardhat-waffle";
-import "hardhat-typechain";
+import "@typechain/hardhat";
+// TODO: reenable solidity-coverage when it works
+// import "solidity-coverage";
 
-// This is a sample Hardhat task. To learn how to create your own go to
-// https://hardhat.org/guides/create-task.html
-task("accounts", "Prints the list of accounts", async (args, hre) => {
-  const accounts = await hre.ethers.getSigners();
-
-  for (const account of accounts) {
-    console.log(account.address);
-  }
-});
-
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
-
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
+const LOCALHOST_URL: string = process.env.LOCALHOST_URL || "";
+const ALCHEMY_MAINNET_KEY: string = process.env.ALCHEMY_MAINNET_KEY || "";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.4",
-  typechain: {
-    outDir: "src/types",
-    target: "ethers-v5",
+  defaultNetwork: "hardhat",
+  solidity: {
+    compilers: [
+      { version: "0.6.12", settings: {} },
+      { version: "0.7.6", settings: {} },
+    ],
+  },
+  networks: {
+    hardhat: {
+      forking: {
+        url: LOCALHOST_URL ? LOCALHOST_URL : ALCHEMY_MAINNET_KEY,
+      },
+    },
   },
 };
 
