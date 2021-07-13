@@ -1,17 +1,14 @@
-import { ethers } from "hardhat";
+import { BigNumber } from "@ethersproject/bignumber";
+import { parseEther } from "@ethersproject/units";
+import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import {
-  AffiliateToken__factory,
-  AffiliateToken,
-  ISwapRouter__factory,
-  ISwapRouter,
-  IERC20__factory,
-  IERC20,
-} from "../typechain";
-import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import { parseEther } from "@ethersproject/units";
-import { BigNumber, BigNumberish } from "@ethersproject/bignumber";
+import { ethers } from "hardhat";
+import { AffiliateToken } from "../typechain/AffiliateToken";
+import { AffiliateToken__factory } from "../typechain/factories/AffiliateToken__factory";
+import { ISwapRouter__factory } from "../typechain/factories/ISwapRouter__factory";
+import { IERC20 } from "../typechain/IERC20";
+import { ISwapRouter } from "../typechain/ISwapRouter";
 
 chai.use(chaiAsPromised);
 const { expect } = chai;
@@ -125,8 +122,8 @@ describe("AffiliateToken", () => {
           WETHAddress.toLowerCase() < daiAddress.toLowerCase()
             ? BigNumber.from("4295128740")
             : BigNumber.from(
-                "1461446703485210103287273052203988822378723970341"
-              ),
+              "1461446703485210103287273052203988822378723970341"
+            ),
       };
 
       await uniswapRouter.exactInputSingle(params, { value: parseEther("10") });
@@ -153,7 +150,7 @@ describe("AffiliateToken", () => {
 
       await affiliateToken
         .connect(alice)
-        ["deposit(uint256)"](parseEther("10000"));
+      ["deposit(uint256)"](parseEther("10000"));
 
       await affiliateToken.connect(alice)["withdraw()"]();
     });
