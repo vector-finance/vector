@@ -129,7 +129,7 @@ describe("AffiliateToken", () => {
       await uniswapRouter.exactInputSingle(params, { value: parseEther("10") });
     });
 
-    it("should deposit DAI", async () => {
+    /*it("should deposit DAI", async () => {
       // deposit amount    10000000000000000000000
       // totalVaultBalance  9999999999999999995089
 
@@ -153,6 +153,6 @@ describe("AffiliateToken", () => {
       ["deposit(uint256)"](parseEther("10000"));
 
       await affiliateToken.connect(alice)["withdraw()"]();
-    });
+    });*/
   });
 });
