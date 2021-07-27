@@ -4,8 +4,8 @@ import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { ethers } from "hardhat";
-import { AffiliateToken } from "../typechain/AffiliateToken";
-import { AffiliateToken__factory } from "../typechain/factories/AffiliateToken__factory";
+import { YearnAffiliateToken } from "../typechain/YearnAffiliateToken";
+import { YearnAffiliateToken__factory } from "../typechain/factories/YearnAffiliateToken__factory";
 import { ISwapRouter__factory } from "../typechain/factories/ISwapRouter__factory";
 import { IERC20 } from "../typechain/IERC20";
 import { ISwapRouter } from "../typechain/ISwapRouter";
@@ -23,14 +23,14 @@ const tokenSymbol: string = "afDAI";
 
 const yDAI: string = "0x19D3364A399d251E894aC732651be8B0E4e85001";
 
-describe("AffiliateToken", () => {
+describe("YearnAffiliateToken", () => {
   let signers: SignerWithAddress[];
   let affiliate: SignerWithAddress;
   let newAffiliate: SignerWithAddress;
   let guardian: SignerWithAddress;
   let alice: SignerWithAddress;
   let bob: SignerWithAddress;
-  let affiliateToken: AffiliateToken;
+  let affiliateToken: YearnAffiliateToken;
   let uniswapRouter: ISwapRouter;
   let WETHContract: IERC20;
   let daiContract: IERC20;
@@ -44,9 +44,9 @@ describe("AffiliateToken", () => {
     bob = signers[4]; // attacker
 
     const affiliateTokenFactory = (await ethers.getContractFactory(
-      "AffiliateToken",
+      "YearnAffiliateToken",
       affiliate
-    )) as AffiliateToken__factory;
+    )) as YearnAffiliateToken__factory;
     affiliateToken = await affiliateTokenFactory.deploy(
       daiAddress,
       registryAddress,

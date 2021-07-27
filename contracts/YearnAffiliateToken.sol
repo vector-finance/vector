@@ -8,7 +8,7 @@ import {BaseWrapper} from "./BaseWrapper.sol";
 
 import "hardhat/console.sol";
 
-contract AffiliateToken is ERC20, BaseWrapper {
+contract YearnAffiliateToken is ERC20, BaseWrapper {
     /// @notice The EIP-712 typehash for the contract's domain
     bytes32 public constant DOMAIN_TYPEHASH =
         keccak256(
